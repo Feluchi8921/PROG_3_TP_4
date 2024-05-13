@@ -16,5 +16,6 @@ public class Main {
         Float etiqueta = grafito.obtenerArco(1, 2).getEtiqueta();
 
         System.out.println(etiqueta); // Debería imprimir 3
+
     }
 }
