@@ -5,13 +5,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class BFS {
+public class ServicioBFS {
 
     private Grafo<Integer> grafo;
     private Queue<Integer> fila;
     private HashMap<Integer, Boolean> visitados;
 
-    public BFS(Grafo<Integer> grafo) {
+    public ServicioBFS(Grafo<Integer> grafo) {
         this.grafo = grafo;
         this.fila = new LinkedList<>();
         this.visitados = new HashMap<>();

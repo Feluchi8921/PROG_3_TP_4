@@ -148,7 +148,7 @@ public class GrafoDirigidoAciclico<T> implements Grafo<T>{
         return null;
     }
 
-    //Algoritmo para encontrar el camino simple más largo en un grafo dirigido acíclico (DFS con memoización)
+    //Ejercicio 4. Algoritmo para encontrar el camino simple más largo en un grafo dirigido acíclico (DFS con memoización)
     public List<Arco<T>> caminoMasLargoDFS(int verticeOrigen, int verticeDestino) {
         HashMap<Integer, List<Arco<T>>> caminos = new HashMap<>(); // Memoización
         return caminoMasLargoDFS(verticeOrigen, verticeDestino, caminos);

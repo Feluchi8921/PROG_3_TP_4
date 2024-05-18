@@ -148,43 +148,4 @@ public class GrafoDirigido<T> implements Grafo<T> {
         return null;
     }
 
-    //Verificar si tiene ciclos
-    public boolean tieneCiclo() {
-        HashMap<Integer, Boolean> visitados = new HashMap<>(); // Mapa de visitados
-        Stack<Integer> pila = new Stack<>(); // Pila para DFS
-
-        // Recorrer todos los vértices del grafo
-        for (Integer vertice : vertices.keySet()) {
-            if (!visitados.containsKey(vertice)) { // Si no visitado
-                if (tieneCicloDFS(vertice, visitados, pila)) {
-                    return true; // Ciclo encontrado
-                }
-            }
-        }
-
-        return false; // No se encontraron ciclos
-    }
-
-    private boolean tieneCicloDFS(int vertice, HashMap<Integer, Boolean> visitados, Stack<Integer> pila) {
-        visitados.put(vertice, true); // Marcar como visitado
-        pila.push(vertice); // Agregar a la pila
-
-        for (Arco<T> arco : vertices.get(vertice)) { // Recorrer adyacentes
-            int adyacente = arco.getVerticeDestino();
-            if (visitados.containsKey(adyacente)) {
-                if (pila.contains(adyacente)) { // Arista trasera (ciclo)
-                    return true;
-                }
-            } else {
-                if (tieneCicloDFS(adyacente, visitados, pila)) { // Recursión
-                    return true;
-                }
-            }
-        }
-
-        pila.pop(); // Eliminar vértice actual de la pila
-        visitados.put(vertice, false); // Marcar como no visitado para futuros recorridos
-
-        return false; // No se encontró ciclo en la exploración actual
-    }
 }
