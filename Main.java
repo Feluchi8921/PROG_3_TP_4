@@ -40,8 +40,8 @@ public class Main {
         int origen = 1;
         int destino = 5;
 
-        CaminoMasLargoDFS servicio = new CaminoMasLargoDFS(grafo, origen, destino);
-        List<Integer> caminoMasLargo = servicio.obtenerCaminoMasLargo(grafo, origen, destino);
+        CaminoMasLargoBackTracking aux = new CaminoMasLargoBackTracking(grafo, origen, destino);
+        List<Integer> caminoMasLargo = aux.otroCaminoMayor(origen, destino);
 
         System.out.println("\nCamino más largo de " + origen + " a " + destino + ":");
         System.out.println(caminoMasLargo);
