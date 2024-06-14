@@ -8,6 +8,7 @@ public class ServicioDFS {
     private String no_visitado;
     private String visitado;
     private String encontrado;
+    private boolean tieneCiclo;
 
     public ServicioDFS(GrafoDirigido<Integer> grafo) {
         this.grafo = grafo;
@@ -15,6 +16,7 @@ public class ServicioDFS {
         this.no_visitado = "blanco";
         this.visitado = "amarillo";
         this.encontrado = "negro";
+        this.tieneCiclo = false;
     }
 
     public List<Integer> DFS(GrafoDirigido<Integer> grafo) {
@@ -75,7 +77,8 @@ public class ServicioDFS {
                 //Agrego esta linea para detectar si hay un ciclo
                 else{
                     if(colores.get(ady) == this.visitado){
-                        System.out.println("Hay ciclo");
+                        this.tieneCiclo = true;
+                        isTieneCiclo(this.tieneCiclo);
                     }
                 }
             }
@@ -83,6 +86,9 @@ public class ServicioDFS {
         colores.put(vertice, this.encontrado);
     }
 
+    public boolean isTieneCiclo(boolean tieneCiclo){
+        return tieneCiclo;
+    }
 }
 
 
